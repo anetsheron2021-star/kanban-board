@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board Pro</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h1 class="logo">Kanban <span>Pro</span></h1>
+        <button onclick="openAddModal()" class="addTaskBtn">+ Add Task</button>
+    </nav>
+
+    <!-- BOARD -->
+    <div class="board">
+        
+        <div class="column">
+            <h2>To Do</h2>
+            <div class="task-container" id="todo" 
+                 ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+
+        <div class="column">
+            <h2>In Progress</h2>
+            <div class="task-container" id="doing" 
+                 ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+
+        <div class="column">
+            <h2>Done</h2>
+            <div class="task-container" id="done" 
+                 ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </div>
+
+    </div>
+
+    <!-- ADD TASK MODAL -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddModal()">&times;</span>
+            <h2>Add Task</h2>
+
+            <input type="text" id="taskTitle" placeholder="Task title">
+            <textarea id="taskDesc" placeholder="Task description"></textarea>
+
+            <label>Priority:</label>
+            <select id="taskPriority">
+                <option value="high">🔥 High</option>
+                <option value="medium">⚡ Medium</option>
+                <option value="low">🌿 Low</option>
+            </select>
+
+            <label>Tag color:</label>
+            <input type="color" id="taskColor" value="#ff3366">
+
+            <button onclick="addTask()" class="saveBtn">Save</button>
+        </div>
+    </div>
+
+
+    <!-- EDIT MODAL -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Task</h2>
+
+            <input type="text" id="editTitle">
+            <textarea id="editDesc"></textarea>
+
+            <label>Priority:</label>
+            <select id="editPriority">
+                <option value="high">🔥 High</option>
+                <option value="medium">⚡ Medium</option>
+                <option value="low">🌿 Low</option>
+            </select>
+
+            <label>Tag color:</label>
+            <input type="color" id="editColor">
+
+            <button onclick="saveEdit()" class="saveBtn">Update</button>
+        </div>
+    </div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+body {
+    background: #0e0e0e;
+    color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: #111;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: #ff2c62;
+}
+
+.addTaskBtn {
+    background: #ff2c62;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.addTaskBtn:hover {
+    background: #ff4479;
+}
+
+/* BOARD */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 40px;
+}
+
+.column {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.column h2 {
+    margin-bottom: 20px;
+}
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* TASK CARD */
+.task {
+    background: #222;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: grab;
+    border-left: 5px solid #ff2c62;
+    transition: 0.2s;
+}
+
+.task:hover {
+    transform: scale(1.03);
+    background: #2c2c2c;
+}
+
+.task h3 {
+    font-size: 17px;
+}
+
+.task p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.priority {
+    font-size: 12px;
+    padding: 3px 6px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.priority.high {
+    background: #ff2c62;
+}
+
+.priority.medium {
+    background: #ffaa33;
+}
+
+.priority.low {
+    background: #4caf50;
+}
+
+.task-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn, .del-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background: #ffaa00;
+}
+
+.del-btn {
+    background: #ff4444;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    background: rgba(0,0,0,0.7);
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content {
+    background: #1a1a1a;
+    margin: 10% auto;
+    padding: 20px;
+    width: 400px;
+    border-radius: 12px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: none;
+}
+
+.saveBtn {
+    width: 100%;
+    padding: 12px;
+    background: #ff2c62;
+    border: none;
+    border-radius: 8px;
+    color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .board {
+        grid-template-columns: 1fr;
+    }
+}
